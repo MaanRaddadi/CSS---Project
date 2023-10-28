@@ -1,0 +1,26 @@
+:root {
+  font-family: "Inter", sans-serif;
+}
+
+@supports (font-variation-settings: normal) {
+  :root {
+    font-family: "Inter var", sans-serif;
+  }
+}
+body {
+  direction: rtl;
+  font-family: "Inter", sans-serif;
+}
+input {
+  background-color: rgba(180, 180, 180, 0.658) !important;
+}
+label {
+  text-align: right !important;
+}
+.btn {
+  background-color: #0d5097 !important;
+}
+a {
+  text-decoration: none !important;
+  color: white !important;
+}

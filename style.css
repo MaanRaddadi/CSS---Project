@@ -1,5 +1,6 @@
 @import url(./css/progressBars.css);
 @import url(./css/ratingStars.css);
+
 :root {
   --main-blue: #0d5097;
   --off-white: #f9f9f9;
@@ -33,15 +34,18 @@ body {
   max-height: 15vh;
   padding: 0 10px;
 }
-
-.logo {
-  width: 5rem;
-  order: 0;
-  height: 100%;
+.sign-in {
+  background-color: none !important;
+  border: 1px solid white !important;
 }
 .btn {
   background-color: var(--main-blue) !important;
   border: none !important;
+}
+.logo {
+  width: 5rem;
+  order: 0;
+  height: 100%;
 }
 
 .offcanvas {
@@ -138,6 +142,7 @@ body {
 }
 ::-webkit-scrollbar {
   width: 5px;
+  height: 5px;
 }
 
 ::-webkit-scrollbar-track {
@@ -188,6 +193,9 @@ body {
 }
 .back-btn {
   background-color: #fff !important;
+}
+.signIn-input {
+  background-color: #ccccccb5 !important;
 }
 @media only screen and (max-width: 600px) {
   .offcanvas {
