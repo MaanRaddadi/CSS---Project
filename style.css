@@ -1,0 +1,199 @@
+@import url(./css/progressBars.css);
+@import url(./css/ratingStars.css);
+:root {
+  --main-blue: #0d5097;
+  --off-white: #f9f9f9;
+  font-family: "Inter", sans-serif;
+}
+@supports (font-variation-settings: normal) {
+  :root {
+    font-family: "Inter var", sans-serif;
+  }
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  direction: rtl;
+}
+body {
+  overflow: hidden;
+  font-family: "Inter", sans-serif;
+}
+#nav-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  background-color: var(--main-blue);
+  color: var(--off-white);
+  height: 10vh;
+  width: 100vw;
+  max-height: 15vh;
+  padding: 0 10px;
+}
+
+.logo {
+  width: 5rem;
+  order: 0;
+  height: 100%;
+}
+.btn {
+  background-color: var(--main-blue) !important;
+  border: none !important;
+}
+
+.offcanvas {
+  top: 11vh !important;
+  border-top-right-radius: 20px !important;
+  border-top-left-radius: 20px !important;
+  width: 25vw !important;
+}
+.header-img {
+  background-color: var(--main-blue);
+}
+.header-left {
+  height: 20% !important;
+}
+.list-container {
+  background-color: #fff !important;
+}
+.filter-btn {
+  background-color: #fff !important;
+
+  display: flex !important;
+  justify-content: center !important;
+  align-items: center !important;
+}
+
+#profile-picture {
+  left: 39% !important;
+  top: 50% !important;
+}
+.map {
+  background-image: url(./assets/images/map1.png);
+  background-size: cover;
+  background-position: center;
+  z-index: 0;
+}
+#resturant-pin {
+  content: url(./assets/pins/Resturant\ Pin.svg);
+  appearance: none;
+  width: 2rem;
+  cursor: pointer;
+  grid-column-start: 7;
+  grid-row-start: 5;
+}
+#cafe-pin {
+  content: url(./assets/pins/Cafe\ Pin.svg);
+  appearance: none;
+  width: 2rem;
+  cursor: pointer;
+  grid-column-start: 6;
+  grid-row-start: 2;
+}
+.pins-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  grid-template-rows: repeat(6, 1fr);
+}
+#park-pin {
+  content: url(./assets/pins/Park\ PinPark\ Pin.svg);
+  appearance: none;
+  width: 2rem;
+  cursor: pointer;
+  grid-column-start: 4;
+  grid-row-start: 5;
+}
+#hotel-pin {
+  content: url(./assets/pins/Hotel\ Pin.svg);
+  appearance: none;
+  width: 2rem;
+  cursor: pointer;
+  grid-column-start: 2;
+  grid-row-start: 2;
+}
+.place-header {
+  background-image: url(./assets/images/park.jpg);
+  background-size: cover;
+  background-position: bottom;
+}
+.img-count {
+  font-size: 0.9em;
+}
+.distance {
+  direction: ltr;
+  font-size: 0.9em;
+}
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  direction: ltr;
+  row-gap: 5px;
+  column-gap: 5px;
+  justify-content: center;
+  align-items: center;
+}
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  border-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #8888888c;
+  border-radius: 15px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
+}
+.fa-star {
+  color: #858585a6;
+  font-size: 0.5em;
+  width: 0.8em;
+}
+.checked {
+  color: orange;
+}
+
+.pfp {
+  width: 2.2rem;
+}
+.rating-text {
+  font-size: 0.9em !important;
+}
+.username {
+  font-size: 0.9em !important;
+}
+.image-group1 {
+  background-image: url(./assets/images/park.jpg);
+  background-position: center;
+  background-size: cover;
+}
+.image-group2 {
+  background-image: url(./assets/images/IMG-20180111-WA0037.jpg);
+  background-position: center;
+  background-size: cover;
+  cursor: pointer;
+}
+.image-group3 {
+  background-image: url(./assets/images/DSC_0233.JPG);
+  background-position: center;
+  background-size: cover;
+}
+.back-btn {
+  background-color: #fff !important;
+}
+@media only screen and (max-width: 600px) {
+  .offcanvas {
+    width: 90vw !important;
+  }
+  .offcanvas-end {
+    width: 90vw !important;
+  }
+}
