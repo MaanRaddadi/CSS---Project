@@ -10,6 +10,7 @@ if (localStorage.getItem("userinfo") !== null) {
   document.getElementById(
     "welcomeMsg"
   ).innerText = `اهلا بك, ${currentUser.UserName}`;
+  document.getElementById("signInLink").innerText = "";
   isSingedIn = true;
 }
 
