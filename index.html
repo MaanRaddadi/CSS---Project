@@ -28,7 +28,7 @@
       <a href="index.html"
         ><img class="logo img-fluid order-first" src="./assets/logo/Logo.png"
       /></a>
-      <div class="order-last">
+      <div class="order-last d-flex justify-content-evenly align-items-center">
         <button
         id="logg"
           type="button"
@@ -36,29 +36,12 @@
           data-bs-toggle=""
           data-bs-target="#signIn"
         >
-           <a href="/pages/singin.html">تسجيل الدخول</a>
+          <a href="/pages/singin.html">تسجيل الدخول</a>
         </button>
 
-        <a href="addplace.html">
-        <button style="display: none;" id="addplace"
-        class="btn btn-primary order-last p-3"
-        >اضافة مكان</button>
-      </a>
 
-        <button
-        id="reg"
-        type="button"
-        class="btn sign-in btn-outline-light p-0 mx-5"
-        data-bs-toggle=""
-        data-bs-target="#signIn"
-      >
-         <a href="/pages/singin.html">تسجيل </a>
-      </button>
-        <button
-          class="btn btn-primary order-last p-3"
           type="button"
-          data-bs-toggle="offcanvas"
-          data-bs-target="#offcanvasScrolling"
+          id="leftOffCanvasBtn"
           aria-controls="offcanvasScrolling"
         >
           <i class="bi bi-list fs-3"></i>
@@ -81,7 +64,7 @@
       data-bs-scroll="true"
       data-bs-backdrop="false"
       tabindex="3"
-      id="offcanvasScrolling"
+      id="leftOffcanvas"
       aria-labelledby="offcanvasScrollingLabel"
     >
       <div class="offcanvas-header header-left p-0 m-0 position-relative">
@@ -93,7 +76,7 @@
         />
       </div>
       <div class="offcanvas-body rounded p-0 rounded py-5">
-        <h6 class="user-name text-center mx-1 mb-1 fw-bold">معن الردادي</h6>
+        <h6 class="user-name text-center mx-1 mb-1 fw-bold"> </h6>
         <div
           class="container list-container d-flex flex-column align-items-center mt-3 p-0"
         >
@@ -240,18 +223,7 @@
         </div>
         <hr class="w-100" />
         <div class="rating-container"></div>
-        <hr class="w-100" />
-        <div class="d-grid gap-2 col-6 mx-auto w-100">
-          <button
-            type="button"
-            class="btn fw-bold"
-            style="background-color: white !important"
-            data-bs-toggle="modal"
-            data-bs-target="#exampleModal2"
-          >
-            عرض المزيد...
-          </button>
-        </div>
+
         <hr class="w-100" />
 
         <div class="container p-0">
@@ -339,12 +311,7 @@
             >
               إلغاء
             </button>
-            <button
-              type="button"
-              class="btn btn-primary"
-              data-bs-dismiss="modal"
-              id="sendRatingBtn"
-            >
+            <button type="button" class="btn btn-primary" id="sendRatingBtn">
               إرسال
             </button>
           </div>
@@ -356,72 +323,6 @@
     <!-- Scrollable modal -->
     <!-- Button trigger modal -->
 
-    <!-- Modal -->
-    <div
-      class="modal fade"
-      id="exampleModal2"
-      tabindex="-1"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h1 class="modal-title fs-5" id="exampleModalLabel">التقييممات</h1>
-          </div>
-          <div class="modal-body">
-            <div class="rating-row container d-flex align-items-start">
-              <img src="./assets/images/pfp-1.svg" class="img-fluid pfp mt-2" />
-
-              <div class="container d-flex flex-column">
-                <p class="fw-bold username m-0">معن الردادي</p>
-                <div class="container p-0">
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star"></span>
-                  <span class="fa fa-star"></span>
-                </div>
-                <p class="fw-bold rating-text">
-                  المنتزه رائع وجميل مناسب جدا للعوائل ومجهز بكامل احتياجات ذوي
-                  الإعاقة مشكلته الوحيدة بعد دورات المياه عن المنتزه
-                </p>
-              </div>
-            </div>
-            <hr class="w-100" />
-            <div class="rating-row container d-flex align-items-start">
-              <img src="./assets/images/pfp-2.svg" class="img-fluid pfp mt-2" />
-
-              <div class="container d-flex flex-column">
-                <p class="fw-bold username m-0">خالد العبدلي</p>
-                <div class="container p-0">
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star checked"></span>
-                  <span class="fa fa-star"></span>
-                </div>
-                <p class="fw-bold rating-text">
-                  اكبر حديقة في حي الروضه. واسعه مليئه بالاشجار والمسطحات
-                  الخضراء منعش التمشي بها صباحا. ومناسبة جدا لذوي الإعاقة
-                  ومتوفرة جميع الخدمات
-                </p>
-              </div>
-            </div>
-          </div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-bs-dismiss="modal"
-            >
-              إخفاء
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!--Comments Modal End-->
     <!--Images Offcanva Start-->
 
     <div
@@ -476,47 +377,24 @@
               class="modal-title fs-5 text-center fw-bold"
               id="exampleModalLabel"
             >
-              تسجيل الدخول
+              يجب عليك تسجيل الدخول اولا
             </h1>
           </div>
-          <div class="modal-body">
-            <form>
-              <div class="mb-3">
-                <label for="exampleInputEmail1" class="form-label"
-                  >البريد الإلكتروني</label
-                >
-                <input
-                  type="email"
-                  class="form-control signIn-input"
-                  id="exampleInputEmail1"
-                  aria-describedby="emailHelp"
-                  placeholder="example@gmail.com"
-                />
-              </div>
-              <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label"
-                  >كلمة السر</label
-                >
-                <input
-                  type="password"
-                  class="form-control signIn-input"
-                  id="exampleInputPassword1"
-                  placeholder="كلمة المرور"
-                />
-              </div>
-              <div class="mb-3 form-check d-flex justify-content-start">
-                <input
-                  type="checkbox"
-                  class="form-check-input order-first"
-                  id="exampleCheck1"
-                />
-                <label
-                  class="form-check-label order-last mx-4 px-1"
-                  for="exampleCheck1"
-                  >تذكرني</label
-                >
-              </div>
-            </form>
+          <div
+            class="modal-body d-flex justify-content-center align-items-center"
+          >
+            <button
+              type="button"
+              class="btn btn-primary"
+              data-bs-dismiss="modal"
+            >
+              <a
+                href="./pages/singin.html"
+                class="text-decoration-none text-light"
+              >
+                تسجيل الدخول الان
+              </a>
+            </button>
           </div>
           <div class="modal-footer">
             <button
@@ -525,13 +403,6 @@
               data-bs-dismiss="modal"
             >
               إلغاء
-            </button>
-            <button
-              type="button"
-              class="btn btn-primary"
-              data-bs-dismiss="modal"
-            >
-              دخول
             </button>
           </div>
         </div>
