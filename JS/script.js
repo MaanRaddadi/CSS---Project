@@ -1,6 +1,18 @@
 const key = "AIzaSyAPVyiX5oN23vqvYmwilNu3zdeQ1yidLv0";
 let userLatitude;
 let userLongitude;
+let currentUser;
+let isSingedIn = false;
+
+if (localStorage.getItem("userinfo") !== null) {
+  console.log(localStorage.getItem("userInfo"));
+  currentUser = JSON.parse(localStorage.getItem("userinfo"));
+  document.getElementById(
+    "welcomeMsg"
+  ).innerText = `اهلا بك, ${currentUser.UserName}`;
+  isSingedIn = true;
+}
+
 // Initialize and add the map
 let map;
 let canvas = new bootstrap.Offcanvas(
@@ -8,7 +20,11 @@ let canvas = new bootstrap.Offcanvas(
 );
 const rightOffcanvas = document.getElementById("offcanvasScrollingRight");
 const ratingModal = new bootstrap.Modal(document.getElementById("ratingModal"));
-
+const signInModal = new bootstrap.Modal(document.getElementById("signIn"));
+const leftOffCanvas = new bootstrap.Offcanvas(
+  document.getElementById("leftOffcanvas")
+);
+const leftOffCanvasBtn = document.getElementById("leftOffCanvasBtn");
 async function initMap() {
   // Request needed libraries.
   //@ts-ignore
@@ -78,72 +94,123 @@ function generateMarkers() {
   });
 }
 const ratingBtn = document.getElementById("addRatingBtn");
-async function fillRightCanvas(id) {
+function fillRightCanvas(id) {
   let placeName = document.getElementById("placeName");
   let canvaHeaderImg = document.getElementById("canvaHeaderImg");
   let serviceImg = document.querySelectorAll(".service-img");
   let distanceText = document.querySelector(".distance");
   let directionsLink = document.getElementById("directions-link");
-  const response = await fetch(
-    "https://65575798bd4bcef8b6127831.mockapi.io/places/" + id
-  );
-  const placeData = await response.json();
+  fetch("https://65575798bd4bcef8b6127831.mockapi.io/places/" + id)
+    .then((response) => response.json())
+    .then((placeData) => {
+      placeName.innerText = placeData.placeName;
+      canvaHeaderImg.src = placeData.placeImages.img;
+      placeData.services.toilets === true
+        ? (serviceImg[0].src = "../assets/services/WC.svg")
+        : (serviceImg[0].src = "../assets/services/WCDisabled.svg");
+      placeData.services.parking === true
+        ? (serviceImg[1].src = "../assets/services/Parking.svg")
+        : (serviceImg[1].src = "../assets/services/ParkingDisabled.svg");
+      placeData.services.ramps === true
+        ? (serviceImg[2].src = "../assets/services/Ramp.svg")
+        : (serviceImg[2].src = "../assets/services/RampDisabled.svg");
+      placeData.services.autoDoors === true
+        ? (serviceImg[3].src = "../assets/services/Doors.svg")
+        : (serviceImg[3].src = "../assets/services/DoorsDisabled.svg");
+      placeData.services.tables === true
+        ? (serviceImg[4].src = "../assets/services/Resturant.svg")
+        : (serviceImg[4].src = "../assets/services/ResturantDisabled.svg");
+      placeData.services.elevators === true
+        ? (serviceImg[5].src = "../assets/services/Elevator_.svg")
+        : (serviceImg[5].src = "../assets/services/Elevator.svg");
 
-  placeName.innerText = placeData.placeName;
-  canvaHeaderImg.src = placeData.placeImages.img;
-  placeData.services.toilets === true
-    ? (serviceImg[0].src = "../assets/services/WC.svg")
-    : (serviceImg[0].src = "../assets/services/WCDisabled.svg");
-  placeData.services.parking === true
-    ? (serviceImg[1].src = "../assets/services/Parking.svg")
-    : (serviceImg[1].src = "../assets/services/ParkingDisabled.svg");
-  placeData.services.ramps === true
-    ? (serviceImg[2].src = "../assets/services/Ramp.svg")
-    : (serviceImg[2].src = "../assets/services/RampDisabled.svg");
-  placeData.services.autoDoors === true
-    ? (serviceImg[3].src = "../assets/services/Doors.svg")
-    : (serviceImg[3].src = "../assets/services/DoorsDisabled.svg");
-  placeData.services.tables === true
-    ? (serviceImg[4].src = "../assets/services/Resturant.svg")
-    : (serviceImg[4].src = "../assets/services/ResturantDisabled.svg");
-  placeData.services.elevators === true
-    ? (serviceImg[5].src = "../assets/services/Elevator_.svg")
-    : (serviceImg[5].src = "../assets/services/Elevator.svg");
+      directionsLink.href = `https://www.google.com/maps/dir/?api=1&destination=${placeData.location.lat},${placeData.location.lng}`;
 
-  directionsLink.href = `https://www.google.com/maps/dir/?api=1&destination=${placeData.location.lat},${placeData.location.lng}`;
+      calculateDistanceFromUserLocation(
+        placeData.location.lat,
+        placeData.location.lng,
+        (distance) => {
+          if (distance !== null) {
+            distanceText.innerText = distance.toFixed(2) + " km";
+          } else {
+            console.log("Unable to calculate distance.");
+          }
+        }
+      );
 
-  calculateDistanceFromUserLocation(
-    placeData.location.lat,
-    placeData.location.lng,
-    (distance) => {
-      if (distance !== null) {
-        distanceText.innerText = distance.toFixed(2) + " km";
-      } else {
-        console.log("Unable to calculate distance.");
-      }
-    }
-  );
+      ratingBtn.addEventListener(
+        "click",
+        () => {
+          if (isSingedIn === false) {
+            signInModal.show();
+          } else {
+            postRating(id);
+          }
+        },
+        {
+          once: true,
+        }
+      );
+      getRatings(id);
 
-  ratingBtn.addEventListener("click", postRating.bind(null, id), {
-    once: true,
-  });
-  getRatings(id);
+      let firstImgGroup = document.querySelector(".image-group1");
+      let secondImgGroup = document.querySelector(".image-group3");
 
-  let firstImgGroup = document.querySelector(".image-group1");
-  let secondImgGroup = document.querySelector(".image-group3");
-
-  firstImgGroup.style.backgroundImage = `url(${placeData.placeImages.img2})`;
-  secondImgGroup.style.backgroundImage = `url(${placeData.placeImages.img3})`;
+      firstImgGroup.style.backgroundImage = `url(${placeData.placeImages.img2})`;
+      secondImgGroup.style.backgroundImage = `url(${placeData.placeImages.img3})`;
+    });
 
   canvas.toggle();
 }
+leftOffCanvasBtn.addEventListener("click", fillLeftOffCanvas);
 
-function postRating(id) {
+function fillLeftOffCanvas() {
+  if (isSingedIn === false) {
+    signInModal.show();
+  } else {
+    document.querySelector(".user-name").innerText = currentUser.UserName;
+    leftOffCanvas.toggle();
+  }
+}
+
+async function postRating(id) {
   ratingModal.show();
-const sendRatingBtn = document.getElementById("sendRatingBtn");
-sendRatingBtn.addEventListener("click", () => {
-  
-})
+  const sendRatingBtn = document.getElementById("sendRatingBtn");
+  sendRatingBtn.addEventListener(
+    "click",
+    async () => {
+      let commentText = document.getElementById("floatingTextarea2").value;
+      if (commentText === "") {
+        document
+          .getElementById("floatingTextarea2")
+          .insertAdjacentHTML("afterend", `<small>اكتب تعليقك اولا</small>`);
+      } else {
+        console.log(id);
+        try {
+          await fetch("https://655895c4e93ca47020a97c19.mockapi.io/comments", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({
+              userId: currentUser.id,
+              placeId: id,
+              commentBody: commentText,
+              ratingValue: "",
+            }),
+          });
+          ratingModal.hide();
+        } catch (error) {
+          document
+            .getElementById("floatingTextarea2")
+            .insertAdjacentHTML("afterend", `<small>${error}</small>`);
+        }
+      }
+    },
+    {
+      once: true,
+    }
+  );
 }
 
 async function getRatings(id) {
@@ -162,6 +229,7 @@ async function getRatings(id) {
         `<p class="text-center">لا توجد تعليقات</p>`
       );
     } else {
+      ratingContainer.innerHTML = "";
       for (const comment of commentsByPlace) {
         let res = await fetch(
           "https://65575798bd4bcef8b6127831.mockapi.io/users/" + comment.userId
