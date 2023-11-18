@@ -24,10 +24,10 @@
   </head>
   <body>
     <div
-      class="form-container w-100 100vh d-flex justify-content-center align-items-center"
+      class="form-container w-100 d-flex justify-content-center align-items-center"
     >
       <form
-        class="d-flex flex-column justify-content-evenly shadow rounded p-5 w-50 align-items-center"
+        class="d-flex flex-column justify-content-evenly shadow rounded p-5 w-100 align-items-center"
       >
         <label for="exampleInputEmail1" class="form-label fw-bold"
           >اسم المكان</label
@@ -40,33 +40,6 @@
           placeholder="إسم المكان"
         />
 
-        <label for="exampleInputPassword1" class="form-label fw-bold"
-          >رقم التواصل</label
-        >
-        <input
-          type="password"
-          class="form-control w-50"
-          id="exampleInputPassword1"
-        />
-
-        <select
-          class="form-select my-3 w-50"
-          aria-label="Default select example"
-        >
-          <option selected>المدينة</option>
-          <option value="1">منطقة الرياض</option>
-          <option value="2">المنطقة الشرقية</option>
-          <option value="3">منطقة القصيم</option>
-          <option value="4">منطقة مكة المكرمة</option>
-          <option value="5">منطقة المدينة المنورة</option>
-          <option value="6">منطقة حائل</option>
-          <option value="7">منطقة نجران</option>
-          <option value="8">منطقة عسير</option>
-          <option value="9">منطقة الباحة</option>
-          <option value="10">منطقة جازان</option>
-          <option value="11">منطقة الجوف</option>
-          <option value="12">منطقة الحدود الشمالية</option>
-        </select>
         <select
           class="form-select my-3 w-50"
           aria-label="Default select example"
@@ -78,32 +51,20 @@
           <option value="3">مطعم</option>
         </select>
 
-        <label for="exampleInputPassword1" class="form-label fw-bold">
-          العنوان 1</label
-        >
-        <input
-          type="password"
-          class="form-control w-50"
-          id="exampleInputPassword1"
-          placeholder="شارع 1"
-        />
-
-        <label for="exampleInputPassword1" class="form-label fw-bold">
-          العنوان 2</label
-        >
-        <input
-          type="password"
-          class="form-control w-50"
-          id="exampleInputPassword1"
-          placeholder="شارع 2"
-        />
-
         <label for="formFile" class="form-label fw-bold"
           >صور للمكان والخدمات</label
         >
-        <input class="form-control w-50 mb-2" type="file" id="formFile" />
+        <input
+          class="form-control w-50 mb-2"
+          type="file"
+          id="formFile"
+          value="{undefined}"
+          accept="image/*"
+        />
         <div class="container d-flex justify-content-center">
-          <button type="submit" class="btn btn-primary">إرسال</button>
+          <button type="button" class="btn btn-primary" id="sendBtn">
+            إرسال
+          </button>
           <button type="submit" class="btn btn-primary mx-2">
             <a href="../index.html">رجوع</a>
           </button>
@@ -111,4 +72,6 @@
       </form>
     </div>
   </body>
+
+  <script src="../JS/placeRequest.js" type="module"></script>
 </html>

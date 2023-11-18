@@ -113,73 +113,12 @@
         </div>
       </div>
     </div>
-    <!--Left Side Menu End-->
-    <!--Pins and map Start-->
-    <div
-      class="map img-fluid vh-100 vw-100 p-0 d-flex justify-content-center align-items-center position-relative"
-    >
-      <div
-        class="d-flex position-absolute top-0 align-content-center justify-content-center mt-2 w-50"
-      >
-        <button type="button" class="btn filter-btn h-100 p-0 shadow">
-          <img class="w-50 img-fluid mt-2" src="./assets/images/Hotels.svg" />
-        </button>
-        <button type="button" class="btn filter-btn p-0 shadow mx-2">
-          <img class="w-50 img-fluid mt-2" src="./assets/images/Cafe.svg" />
-        </button>
-        <button type="button" class="btn filter-btn p-0 shadow mx-2">
-          <img class="w-50 img-fluid mt-2" src="./assets/images/Parks.svg" />
-        </button>
-        <button type="button" class="btn filter-btn p-0 shadow mx-2">
-          <img
-            class="w-50 img-fluid mt-2"
-            src="./assets/images/Resturants.svg"
-          />
-        </button>
-      </div>
-      <div class="pins-grid w-50">
-        <input
-          type="checkbox"
-          name="pin"
-          id="resturant-pin"
-          data-bs-toggle="offcanvas"
-          data-bs-target="#offcanvasScrollingRight"
-          aria-controls="offcanvasScrolling"
-        />
-
-        <input
-          type="checkbox"
-          name="pin"
-          id="cafe-pin"
-          data-bs-toggle="offcanvas"
-          data-bs-target="#offcanvasScrollingRight"
-          aria-controls="offcanvasScrolling"
-        />
-        <input
-          type="checkbox"
-          name="pin"
-          id="hotel-pin"
-          data-bs-toggle="offcanvas"
-          data-bs-target="#offcanvasScrollingRight"
-          aria-controls="offcanvasScrolling"
-        />
-
-        <input
-          type="checkbox"
-          name="pin"
-          id="park-pin"
-          data-bs-toggle="offcanvas"
-          data-bs-target="#offcanvasScrollingRight"
-          aria-controls="offcanvasScrolling"
-        />
-      </div>
-    </div>
-    <!--Pins and map end-->
-    <!--right side menu start-->
+    <!--Setting up the map -->
+    <div id="map"></div>
+    <!--Map End-->
     <div
       class="offcanvas offcanvas-end shadow mx-1"
       data-bs-scroll="true"
-      data-bs-backdrop="false"
       tabindex="3"
       id="offcanvasScrollingRight"
       aria-labelledby="offcanvasScrollingLabel"
@@ -188,22 +127,29 @@
         class="offcanvas-body p-0 py-0 d-flex flex-column align-items-start mx-1 overflow-x-hidden z-1"
       >
         <img
-          src="./assets/images/park.jpg"
+          src=""
           class="w-100 h-25 object-fit-cover rounded"
+          id="canvaHeaderImg"
         />
         <div class="container d-flex p-0 mt-2">
           <div class="d-flex justify-content-between w-100 align-items-center">
             <div class="d-flex flex-column justify-content-center">
-              <h5 class="fw-bold mx-1">منتزه الروضة</h5>
-              <p class="distance text-secondary fw-bold mx-1 text-end">
-                4.6 km
-              </p>
+              <h5 class="fw-bold mx-1" id="placeName">منتزه الروضة</h5>
+              <p class="distance text-secondary fw-bold mx-1 text-end"></p>
             </div>
             <button
               type="button"
               class="btn btn-primary text-nowrap shadow mb-3"
+              id="directionsBtn"
             >
-              الإتجاهات <i class="bi bi-sign-merge-left-fill"></i>
+              <a
+                href="#"
+                id="directions-link"
+                class="text-decoration-none text-light"
+                target="_blank"
+                >الإتجاهات
+              </a>
+              <i class="bi bi-sign-merge-left-fill"></i>
             </button>
           </div>
         </div>
@@ -279,51 +225,13 @@
           <button
             type="button"
             class="btn btn-primary text-nowrap shadow mb-0 fw-bold"
-            data-bs-toggle="modal"
-            data-bs-target="#exampleModal"
+            id="addRatingBtn"
           >
             إضافة تقييم
           </button>
         </div>
         <hr class="w-100" />
-        <div class="rating-row container d-flex align-items-start">
-          <img src="./assets/images/pfp-1.svg" class="img-fluid pfp mt-2" />
-
-          <div class="container d-flex flex-column">
-            <p class="fw-bold username m-0">معن الردادي</p>
-            <div class="container p-0">
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star"></span>
-              <span class="fa fa-star"></span>
-            </div>
-            <p class="fw-bold rating-text">
-              المنتزه رائع وجميل مناسب جدا للعوائل ومجهز بكامل احتياجات ذوي
-              الإعاقة مشكلته الوحيدة بعد دورات المياه عن المنتزه
-            </p>
-          </div>
-        </div>
-        <hr class="w-100" />
-        <div class="rating-row container d-flex align-items-start">
-          <img src="./assets/images/pfp-2.svg" class="img-fluid pfp mt-2" />
-
-          <div class="container d-flex flex-column">
-            <p class="fw-bold username m-0">خالد العبدلي</p>
-            <div class="container p-0">
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star"></span>
-            </div>
-            <p class="fw-bold rating-text">
-              اكبر حديقة في حي الروضه. واسعه مليئه بالاشجار والمسطحات الخضراء
-              منعش التمشي بها صباحا. ومناسبة جدا لذوي الإعاقة ومتوفرة جميع
-              الخدمات
-            </p>
-          </div>
-        </div>
+        <div class="rating-container"></div>
         <hr class="w-100" />
         <div class="d-grid gap-2 col-6 mx-auto w-100">
           <button
@@ -342,11 +250,6 @@
           <div
             class="image-group1 w-100 h-100 p-0 m-0 rounded d-flex justify-content-between align-items-end fw-bold mb-2 img-fluid"
           >
-            <div
-              class="img-count rounded-1 p-1 shadow bg-dark opacity-75 text-light text-center w-25 mx-1 my-1 order-last"
-            >
-              200 صورة
-            </div>
             <p class="fw-bold text-light text-center mb-1 mx-1">جميع الصور</p>
           </div>
           <a
@@ -357,11 +260,6 @@
             <div
               class="image-group2 w-100 h-100 p-0 m-0 rounded d-flex justify-content-between align-items-end fw-bold mb-2 img-fluid"
             >
-              <div
-                class="img-count rounded-1 p-1 shadow bg-dark opacity-75 text-light text-center w-25 mx-1 my-1 order-last"
-              >
-                20 صورة
-              </div>
               <p class="fw-bold text-light text-center mb-1 mx-1">
                 صور الخدمات
               </p>
@@ -370,11 +268,6 @@
           <div
             class="image-group3 w-100 h-100 p-0 m-0 rounded d-flex justify-content-between align-items-end fw-bold mb-2 img-fluid"
           >
-            <div
-              class="img-count rounded-1 p-1 shadow bg-dark opacity-75 text-light text-center w-25 mx-1 my-1 order-last"
-            >
-              50 صورة
-            </div>
             <p class="fw-bold text-light text-center mb-1 mx-1">صور حديثة</p>
           </div>
         </div>
@@ -388,7 +281,7 @@
     <!-- Modal -->
     <div
       class="modal fade"
-      id="exampleModal"
+      id="ratingModal"
       tabindex="-1"
       aria-labelledby="exampleModalLabel"
       aria-hidden="true"
@@ -442,6 +335,7 @@
               type="button"
               class="btn btn-primary"
               data-bs-dismiss="modal"
+              id="sendRatingBtn"
             >
               إرسال
             </button>
@@ -636,10 +530,54 @@
       </div>
     </div>
     <!--Sign in End-->
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
-      crossorigin="anonymous"
-    ></script>
   </body>
+  <script>
+    ((g) => {
+      var h,
+        a,
+        k,
+        p = "The Google Maps JavaScript API",
+        c = "google",
+        l = "importLibrary",
+        q = "__ib__",
+        m = document,
+        b = window;
+      b = b[c] || (b[c] = {});
+      var d = b.maps || (b.maps = {}),
+        r = new Set(),
+        e = new URLSearchParams(),
+        u = () =>
+          h ||
+          (h = new Promise(async (f, n) => {
+            await (a = m.createElement("script"));
+            e.set("libraries", [...r] + "");
+            for (k in g)
+              e.set(
+                k.replace(/[A-Z]/g, (t) => "_" + t[0].toLowerCase()),
+                g[k]
+              );
+            e.set("callback", c + ".maps." + q);
+            a.src = `https://maps.${c}apis.com/maps/api/js?` + e;
+            d[q] = f;
+            a.onerror = () => (h = n(Error(p + " could not load.")));
+            a.nonce = m.querySelector("script[nonce]")?.nonce || "";
+            m.head.append(a);
+          }));
+      d[l]
+        ? console.warn(p + " only loads once. Ignoring:", g)
+        : (d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)));
+    })({
+      key: "AIzaSyAPVyiX5oN23vqvYmwilNu3zdeQ1yidLv0",
+      v: "weekly",
+      // Use the 'v' parameter to indicate the version to use (weekly, beta, alpha, etc.).
+      // Add other bootstrap parameters as needed, using camel case.
+    });
+  </script>
+  <script
+    src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+    crossorigin="anonymous"
+  ></script>
+  <script src="./JS/script.js"></script>
+  <script src="./JS/places.js"></script>
 </html>
