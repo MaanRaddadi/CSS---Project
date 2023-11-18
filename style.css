@@ -38,6 +38,44 @@ body {
   background-color: none !important;
   border: 1px solid white !important;
 }
+.sign-in a{
+  text-decoration: none;
+  color: white;
+}
+
+/* Mycode */
+.background{
+  display: flex;
+  width: 100vw;
+  height: 90vh;
+  justify-content: center;
+  align-items: center;
+  background-color: #55555541;
+}
+
+
+.singin-card{
+  width: 30vw;
+  height: 45vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: 1px 1px 100px  rgba(0, 0, 0, 0.302);
+}  
+
+
+.inputs{
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  
+}
+.inputs input{
+  width: 20vw;
+}
+
+
 .btn {
   background-color: var(--main-blue) !important;
   border: none !important;
@@ -204,4 +242,64 @@ body {
   .offcanvas-end {
     width: 90vw !important;
   }
+
+  .singin-card{
+    width: 70vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 1px 1px 100px  rgba(0, 0, 0, 0.302);
+  }  
+
+  .inputs input{
+    width: 60vw;
+  }  
+  
+}
+
+@media only screen and (max-width: 900px) {
+  .offcanvas {
+    width: 90vw !important;
+  }
+  .offcanvas-end {
+    width: 90vw !important;
+  }
+
+  .singin-card{
+    width: 70vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 1px 1px 100px  rgba(0, 0, 0, 0.302);
+  }  
+
+  .inputs input{
+    width: 60vw;
+  }  
+  
+}
+
+@media only screen and (max-width: 1200px) {
+  .offcanvas {
+    width: 90vw !important;
+  }
+  .offcanvas-end {
+    width: 90vw !important;
+  }
+
+  .singin-card{
+    width: 70vw;
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 1px 1px 100px  rgba(0, 0, 0, 0.302);
+  }  
+
+  .inputs input{
+    width: 60vw;
+  }  
+  
 }
