@@ -216,51 +216,13 @@
           <button
             type="button"
             class="btn btn-primary text-nowrap shadow mb-0 fw-bold"
-            data-bs-toggle="modal"
-            data-bs-target="#exampleModal"
+            id="addRatingBtn"
           >
             إضافة تقييم
           </button>
         </div>
         <hr class="w-100" />
-        <div class="rating-row container d-flex align-items-start">
-          <img src="./assets/images/pfp-1.svg" class="img-fluid pfp mt-2" />
-
-          <div class="container d-flex flex-column">
-            <p class="fw-bold username m-0">معن الردادي</p>
-            <div class="container p-0">
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star"></span>
-              <span class="fa fa-star"></span>
-            </div>
-            <p class="fw-bold rating-text">
-              المنتزه رائع وجميل مناسب جدا للعوائل ومجهز بكامل احتياجات ذوي
-              الإعاقة مشكلته الوحيدة بعد دورات المياه عن المنتزه
-            </p>
-          </div>
-        </div>
-        <hr class="w-100" />
-        <div class="rating-row container d-flex align-items-start">
-          <img src="./assets/images/pfp-2.svg" class="img-fluid pfp mt-2" />
-
-          <div class="container d-flex flex-column">
-            <p class="fw-bold username m-0">خالد العبدلي</p>
-            <div class="container p-0">
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star checked"></span>
-              <span class="fa fa-star"></span>
-            </div>
-            <p class="fw-bold rating-text">
-              اكبر حديقة في حي الروضه. واسعه مليئه بالاشجار والمسطحات الخضراء
-              منعش التمشي بها صباحا. ومناسبة جدا لذوي الإعاقة ومتوفرة جميع
-              الخدمات
-            </p>
-          </div>
-        </div>
+        <div class="rating-container"></div>
         <hr class="w-100" />
         <div class="d-grid gap-2 col-6 mx-auto w-100">
           <button
@@ -279,11 +241,6 @@
           <div
             class="image-group1 w-100 h-100 p-0 m-0 rounded d-flex justify-content-between align-items-end fw-bold mb-2 img-fluid"
           >
-            <div
-              class="img-count rounded-1 p-1 shadow bg-dark opacity-75 text-light text-center w-25 mx-1 my-1 order-last"
-            >
-              200 صورة
-            </div>
             <p class="fw-bold text-light text-center mb-1 mx-1">جميع الصور</p>
           </div>
           <a
@@ -294,11 +251,6 @@
             <div
               class="image-group2 w-100 h-100 p-0 m-0 rounded d-flex justify-content-between align-items-end fw-bold mb-2 img-fluid"
             >
-              <div
-                class="img-count rounded-1 p-1 shadow bg-dark opacity-75 text-light text-center w-25 mx-1 my-1 order-last"
-              >
-                20 صورة
-              </div>
               <p class="fw-bold text-light text-center mb-1 mx-1">
                 صور الخدمات
               </p>
@@ -307,11 +259,6 @@
           <div
             class="image-group3 w-100 h-100 p-0 m-0 rounded d-flex justify-content-between align-items-end fw-bold mb-2 img-fluid"
           >
-            <div
-              class="img-count rounded-1 p-1 shadow bg-dark opacity-75 text-light text-center w-25 mx-1 my-1 order-last"
-            >
-              50 صورة
-            </div>
             <p class="fw-bold text-light text-center mb-1 mx-1">صور حديثة</p>
           </div>
         </div>
@@ -325,7 +272,7 @@
     <!-- Modal -->
     <div
       class="modal fade"
-      id="exampleModal"
+      id="ratingModal"
       tabindex="-1"
       aria-labelledby="exampleModalLabel"
       aria-hidden="true"
@@ -379,6 +326,7 @@
               type="button"
               class="btn btn-primary"
               data-bs-dismiss="modal"
+              id="sendRatingBtn"
             >
               إرسال
             </button>

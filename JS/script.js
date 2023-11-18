@@ -7,6 +7,8 @@ let canvas = new bootstrap.Offcanvas(
   document.getElementById("offcanvasScrollingRight")
 );
 const rightOffcanvas = document.getElementById("offcanvasScrollingRight");
+const ratingModal = new bootstrap.Modal(document.getElementById("ratingModal"));
+
 async function initMap() {
   // Request needed libraries.
   //@ts-ignore
@@ -75,7 +77,7 @@ function generateMarkers() {
     }
   });
 }
-
+const ratingBtn = document.getElementById("addRatingBtn");
 async function fillRightCanvas(id) {
   let placeName = document.getElementById("placeName");
   let canvaHeaderImg = document.getElementById("canvaHeaderImg");
@@ -122,7 +124,78 @@ async function fillRightCanvas(id) {
     }
   );
 
+  ratingBtn.addEventListener("click", postRating.bind(null, id), {
+    once: true,
+  });
+  getRatings(id);
+
+  let firstImgGroup = document.querySelector(".image-group1");
+  let secondImgGroup = document.querySelector(".image-group3");
+
+  firstImgGroup.style.backgroundImage = `url(${placeData.placeImages.img2})`;
+  secondImgGroup.style.backgroundImage = `url(${placeData.placeImages.img3})`;
+
   canvas.toggle();
+}
+
+function postRating(id) {
+  ratingModal.show();
+const sendRatingBtn = document.getElementById("sendRatingBtn");
+sendRatingBtn.addEventListener("click", () => {
+  
+})
+}
+
+async function getRatings(id) {
+  const ratingContainer = document.querySelector(".rating-container");
+  try {
+    const response = await fetch(
+      "https://655895c4e93ca47020a97c19.mockapi.io/comments"
+    );
+    const comments = await response.json();
+
+    let commentsByPlace = comments.filter((comment) => comment.placeId == id);
+    if (commentsByPlace.length === 0) {
+      ratingContainer.innerHTML = "";
+      ratingContainer.insertAdjacentHTML(
+        "beforeend",
+        `<p class="text-center">لا توجد تعليقات</p>`
+      );
+    } else {
+      for (const comment of commentsByPlace) {
+        let res = await fetch(
+          "https://65575798bd4bcef8b6127831.mockapi.io/users/" + comment.userId
+        );
+        let userData = await res.json();
+        ratingContainer.insertAdjacentHTML(
+          "beforeend",
+          `<div class="rating-row container d-flex align-items-start">
+        <img
+          src="https://upload.wikimedia.org/wikipedia/commons/thumb/2/2c/Default_pfp.svg/510px-Default_pfp.svg.png"
+          class="img-fluid pfp mt-2"
+        />
+    
+        <div class="container d-flex flex-column">
+          <p class="fw-bold username m-0">${userData.userName}</p>
+          <div class="container p-0">
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star checked"></span>
+            <span class="fa fa-star"></span>
+            <span class="fa fa-star"></span>
+          </div>
+          <p class="fw-bold rating-text">
+    ${comment.commentBody}
+          </p>
+        </div>
+      </div>
+      <hr class="w-100" />`
+        );
+      }
+    }
+  } catch (error) {
+    console.log(`Comment Status : ${error}`);
+  }
 }
 
 function openDircetions(lat, lng) {
