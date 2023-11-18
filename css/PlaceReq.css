@@ -1,16 +1,14 @@
 @import url(./css/progressBars.css);
 @import url(./css/ratingStars.css);
 
-@import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap");
-
 :root {
   --main-blue: #0d5097;
   --off-white: #f9f9f9;
-  font-family: "Tajawal", sans-serif;
+  font-family: "Inter", sans-serif;
 }
 @supports (font-variation-settings: normal) {
   :root {
-    font-family: "Tajawal", sans-serif;
+    font-family: "Inter var", sans-serif;
   }
 }
 
@@ -18,11 +16,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  direction: rtl;
+  direction: ltr;
 }
 body {
   overflow: hidden;
-  font-family: "Tajawal", sans-serif;
+  font-family: "Inter", sans-serif;
 }
 #nav-bar {
   display: flex;
@@ -40,13 +38,13 @@ body {
   background-color: none !important;
   border: 1px solid white !important;
 }
-.sign-in a {
+.sign-in a{
   text-decoration: none;
   color: white;
 }
 
 /* Mycode */
-.background {
+.background{
   display: flex;
   width: 100vw;
   height: 90vh;
@@ -55,26 +53,33 @@ body {
   background-color: #55555541;
   display: flex;
   flex-direction: column;
+  
 }
 
-.singin-card {
-  width: 30vw;
-  height: 45vh;
+
+.singin-card{
+  width: 50vw;
+  height: 70vh;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  box-shadow: 1px 1px 100px rgba(0, 0, 0, 0.302);
-}
+  flex-direction: row;
+  box-shadow: 1px 1px 100px  rgba(0, 0, 0, 0.302);
+ gap: 20px;
+}  
 
-.inputs {
+
+
+
+.inputs{
   display: flex;
   flex-direction: column;
   gap: 20px;
   align-items: center;
+  
 }
-.inputs input {
+.inputs input{
   width: 20vw;
 }
+
 
 .btn {
   background-color: var(--main-blue) !important;
@@ -251,18 +256,19 @@ body {
     width: 90vw !important;
   }
 
-  .singin-card {
+  .singin-card{
     width: 70vw;
-
+    height: 50vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 1px 1px 100px rgba(0, 0, 0, 0.302);
-  }
+    box-shadow: 1px 1px 100px  rgba(0, 0, 0, 0.302);
+  }  
 
-  .inputs input {
+  .inputs input{
     width: 60vw;
-  }
+  }  
+  
 }
 
 @media only screen and (max-width: 900px) {
@@ -273,18 +279,19 @@ body {
     width: 90vw !important;
   }
 
-  .singin-card {
+  .singin-card{
     width: 70vw;
-
+    height: 50vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 1px 1px 100px rgba(0, 0, 0, 0.302);
-  }
+    box-shadow: 1px 1px 100px  rgba(0, 0, 0, 0.302);
+  }  
 
-  .inputs input {
+  .inputs input{
     width: 60vw;
-  }
+  }  
+  
 }
 
 @media only screen and (max-width: 1200px) {
@@ -295,16 +302,17 @@ body {
     width: 90vw !important;
   }
 
-  .singin-card {
+  .singin-card{
     width: 70vw;
-
+    height: 50vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    box-shadow: 1px 1px 100px rgba(0, 0, 0, 0.302);
-  }
+    box-shadow: 1px 1px 100px  rgba(0, 0, 0, 0.302);
+  }  
 
-  .inputs input {
+  .inputs input{
     width: 60vw;
-  }
+  }  
+  
 }
