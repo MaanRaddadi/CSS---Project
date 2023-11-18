@@ -75,11 +75,9 @@ body {
   left: 39% !important;
   top: 50% !important;
 }
-.map {
-  background-image: url(./assets/images/map1.png);
-  background-size: cover;
-  background-position: center;
-  z-index: 0;
+#map {
+  width: 100%;
+  height: 90vh;
 }
 #resturant-pin {
   content: url(./assets/pins/Resturant\ Pin.svg);
