@@ -1,17 +1,10 @@
+@import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap");
 @import url(./css/progressBars.css);
 @import url(./css/ratingStars.css);
-
-@import url("https://fonts.googleapis.com/css2?family=Tajawal:wght@200;300;400;500;700;800;900&display=swap");
 
 :root {
   --main-blue: #0d5097;
   --off-white: #f9f9f9;
-  font-family: "Tajawal", sans-serif;
-}
-@supports (font-variation-settings: normal) {
-  :root {
-    font-family: "Tajawal", sans-serif;
-  }
 }
 
 * {
@@ -20,9 +13,26 @@
   box-sizing: border-box;
   direction: rtl;
 }
-body {
-  overflow: hidden;
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: "Tajawal", sans-serif;
+}
+p,
+a,
+input,
+small,
+textarea,
+button {
+  font-family: "Tajawal", sans-serif;
+}
+
+body {
+  overflow-x: hidden;
 }
 #nav-bar {
   display: flex;
@@ -35,6 +45,7 @@ body {
   width: 100vw;
   max-height: 15vh;
   padding: 0 10px;
+  font-family: "Tajawal", sans-serif;
 }
 .sign-in {
   background-color: none !important;
@@ -48,8 +59,7 @@ body {
 /* Mycode */
 .background {
   display: flex;
-  width: 100vw;
-  height: 90vh;
+
   justify-content: center;
   align-items: center;
   background-color: #55555541;
@@ -58,8 +68,6 @@ body {
 }
 
 .singin-card {
-  width: 30vw;
-  height: 45vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -85,14 +93,13 @@ body {
   order: 0;
   height: 100%;
 }
-.services{
+.services {
   display: flex;
   flex-direction: column;
   align-items: end;
-  
 }
 
-#map{
+#map {
   width: 15vw;
 }
 
@@ -306,5 +313,10 @@ body {
 
   .inputs input {
     width: 60vw;
+  }
+}
+@media only screen and (max-width: 424px) {
+  #searchBar {
+    display: none;
   }
 }
