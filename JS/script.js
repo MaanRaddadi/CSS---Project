@@ -82,7 +82,7 @@ function generateMarkers() {
         const marker = new google.maps.Marker({
           position: { lat: d.location.lat, lng: d.location.lng },
           map: map,
-          icon: "./assets/pins/ResturantPin.svg",
+          icon: "assets/pins/ResturantPin.svg",
         });
         marker.addListener("click", () => {
           map.setZoom(16);
@@ -117,23 +117,23 @@ function fillRightCanvas(id) {
       placeName.innerText = placeData.placeName;
       canvaHeaderImg.src = placeData.placeImages.img;
       placeData.services.toilets === true
-        ? (serviceImg[0].src = "./assets/services/WC.svg")
-        : (serviceImg[0].src = "./assets/services/WCDisabled.svg");
+        ? (serviceImg[0].src = "assets/services/WC.svg")
+        : (serviceImg[0].src = "assets/services/WCDisabled.svg");
       placeData.services.parking === true
-        ? (serviceImg[1].src = "./assets/services/Parking.svg")
-        : (serviceImg[1].src = "./assets/services/ParkingDisabled.svg");
+        ? (serviceImg[1].src = "assets/services/Parking.svg")
+        : (serviceImg[1].src = "assets/services/ParkingDisabled.svg");
       placeData.services.ramps === true
-        ? (serviceImg[2].src = "./assets/services/Ramp.svg")
-        : (serviceImg[2].src = "./assets/services/RampDisabled.svg");
+        ? (serviceImg[2].src = "assets/services/Ramp.svg")
+        : (serviceImg[2].src = "assets/services/RampDisabled.svg");
       placeData.services.autoDoors === true
-        ? (serviceImg[3].src = "./assets/services/Doors.svg")
-        : (serviceImg[3].src = "./assets/services/DoorsDisabled.svg");
+        ? (serviceImg[3].src = "assets/services/Doors.svg")
+        : (serviceImg[3].src = "assets/services/DoorsDisabled.svg");
       placeData.services.tables === true
-        ? (serviceImg[4].src = "./assets/services/Resturant.svg")
-        : (serviceImg[4].src = "./assets/services/ResturantDisabled.svg");
+        ? (serviceImg[4].src = "assets/services/Resturant.svg")
+        : (serviceImg[4].src = "assets/services/ResturantDisabled.svg");
       placeData.services.elevators === true
-        ? (serviceImg[5].src = "./assets/services/Elevator_.svg")
-        : (serviceImg[5].src = "./assets/services/Elevator.svg");
+        ? (serviceImg[5].src = "assets/services/Elevator_.svg")
+        : (serviceImg[5].src = "assets/services/Elevator.svg");
 
       directionsLink.href = `https://www.google.com/maps/dir/?api=1&destination=${placeData.location.lat},${placeData.location.lng}`;
 
