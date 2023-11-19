@@ -70,7 +70,7 @@ function generateMarkers() {
         const marker = new google.maps.Marker({
           position: { lat: d.location.lat, lng: d.location.lng },
           map: map,
-          icon: "/assets/pins/ParkPin.svg",
+          icon: "assets/pins/ParkPin.svg",
         });
 
         marker.addListener("click", () => {
@@ -82,7 +82,7 @@ function generateMarkers() {
         const marker = new google.maps.Marker({
           position: { lat: d.location.lat, lng: d.location.lng },
           map: map,
-          icon: "/assets/pins/ResturantPin.svg",
+          icon: "./assets/pins/ResturantPin.svg",
         });
         marker.addListener("click", () => {
           map.setZoom(16);
@@ -93,7 +93,7 @@ function generateMarkers() {
         const marker = new google.maps.Marker({
           position: { lat: d.location.lat, lng: d.location.lng },
           map: map,
-          icon: "/assets/pins/HotelPin.svg",
+          icon: "assets/pins/HotelPin.svg",
         });
         marker.addListener("click", () => {
           map.setZoom(16);
