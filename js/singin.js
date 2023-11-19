@@ -12,10 +12,37 @@ singinBTN.addEventListener("click", () => {
       );
 
       if (!userinfo) {
-        error.innerText = "name or password is invailed";
+        error.innerText = "name or password is invalid";
       } else {
-        localStorage.setItem("userinfo", JSON.stringify(userinfo));
-        window.location.href = "../index.html";
+        if (checkIfAdmin(userinfo)) {
+          localStorage.setItem("admin", JSON.stringify(userinfo));
+          window.location.href = "../index.html";
+        } else {
+          localStorage.setItem("userinfo", JSON.stringify(userinfo));
+          window.location.href = "../index.html";
+        }
       }
     });
 });
+
+const admins = [
+  {
+    username: "admin",
+    password: "Admin@123",
+  },
+  {
+    username: "admin2",
+    password: "admin@123",
+  },
+];
+function checkIfAdmin(user) {
+  console.log(user);
+  for (let i = 0; i < admins.length; i++) {
+    if (
+      admins[i].username === user.UserName &&
+      admins[i].password === user.Password
+    ) {
+      return true;
+    }
+  }
+}

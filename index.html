@@ -28,9 +28,9 @@
       <a href="index.html"
         ><img class="logo img-fluid order-first" src="./assets/logo/Logo.png"
       /></a>
+
       <div class="order-last d-flex justify-content-evenly align-items-center">
         <button
-        id="logg"
           type="button"
           class="btn sign-in btn-outline-light p-0"
           data-bs-toggle=""
@@ -39,7 +39,9 @@
           <a href="/pages/singin.html" id="signInLink">تسجيل الدخول</a>
         </button>
 
-
+        <small class="text-light mx-3" id="welcomeMsg"></small>
+        <button
+          class="btn btn-primary order-last"
           type="button"
           id="leftOffCanvasBtn"
           aria-controls="offcanvasScrolling"
@@ -98,7 +100,7 @@
               ><i class="bi bi-gear-fill text-dark p-2"></i>الإعدادت</a
             >
           </div>
-          <button type="button" class="btn btn-primary m-5">
+          <button type="button" class="btn btn-primary m-5" id="signOutBtn">
             تسجيل الخروج
           </button>
         </div>

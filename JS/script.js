@@ -3,17 +3,27 @@ let userLatitude;
 let userLongitude;
 let currentUser;
 let isSingedIn = false;
+let isAdmin = false;
 
-if (localStorage.getItem("userinfo") !== null) {
-  console.log(localStorage.getItem("userInfo"));
-  currentUser = JSON.parse(localStorage.getItem("userinfo"));
-  document.getElementById(
-    "welcomeMsg"
-  ).innerText = `اهلا بك, ${currentUser.UserName}`;
-  document.getElementById("signInLink").innerText = "";
-  isSingedIn = true;
+if (localStorage.length > 0) {
+  if (localStorage.getItem("admin") !== null) {
+    currentUser = JSON.parse(localStorage.getItem("admin"));
+    document.getElementById(
+      "welcomeMsg"
+    ).innerText = `اهلا بك, ${currentUser.UserName}`;
+    document.getElementById("signInLink").innerText = "";
+    isAdmin = true;
+    isSingedIn = true;
+  } else {
+    currentUser = JSON.parse(localStorage.getItem("userinfo"));
+    document.getElementById(
+      "welcomeMsg"
+    ).innerText = `اهلا بك, ${currentUser.UserName}`;
+    document.getElementById("signInLink").innerText = "";
+    isSingedIn = true;
+  }
 }
-
+console.log(isAdmin);
 // Initialize and add the map
 let map;
 let canvas = new bootstrap.Offcanvas(
@@ -164,7 +174,15 @@ function fillRightCanvas(id) {
   canvas.toggle();
 }
 leftOffCanvasBtn.addEventListener("click", fillLeftOffCanvas);
-
+if (isAdmin) {
+  document.querySelector(".list-group").insertAdjacentHTML(
+    "beforeend",
+    ` <a
+  href="./pages/PlaceReq.html"
+  class="list-group-item list-group-item-action fs-6 fw-bold text-decoration-none"
+  ><i class="bi bi-clipboard-check text-dark p-2"></i>إدارة الطلبات</a>`
+  );
+}
 function fillLeftOffCanvas() {
   if (isSingedIn === false) {
     signInModal.show();
@@ -299,5 +317,10 @@ function calculateDistance(lat1, lon1, lat2, lon2) {
   const distance = earthRadius * c;
   return distance;
 }
+
+document.getElementById("signOutBtn").addEventListener("click", () => {
+  localStorage.clear();
+  window.location.reload();
+});
 
 initMap();
