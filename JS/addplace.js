@@ -77,7 +77,9 @@ async function initMap() {
                       },
                 })
                 .then(res => res.json())
-                .then(data => {})
+                .then(data => {
+              
+                })
             
             })
         }
