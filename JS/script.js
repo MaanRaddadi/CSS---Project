@@ -1,4 +1,3 @@
-const key = "AIzaSyAPVyiX5oN23vqvYmwilNu3zdeQ1yidLv0";
 let userLatitude;
 let userLongitude;
 let currentUser;
